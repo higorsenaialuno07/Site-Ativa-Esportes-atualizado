@@ -58,7 +58,6 @@
   height: 32px;
   margin-right: 8px;
   margin-top: 5px;
-  filter: brightness(0.9);
   transition: 0.3s;
 }
 
@@ -71,7 +70,7 @@
 .social a {
   display: inline-block;
   color: #fff;
-  background-color: #00c3ff;
+  /* background-color: #00c3ff; */
   width: 36px;
   height: 36px;
   border-radius: 50%;

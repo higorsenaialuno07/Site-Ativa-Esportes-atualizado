@@ -85,13 +85,19 @@ header ul li {
     text-decoration: none;
 }
 
-
-.logo img {
+img {
+  /* filter: brightness(200%); dobra o brilho da imagem */
   height: 65px; 
   width: 143px;
   /* transition: transform 0.3s ease; */
-  mix-blend-mode: multiply;
-}
+  /* mix-blend-mode: multiply;
+} */
+
+/* .logo img {
+  height: 65px; 
+  width: 143px;
+  /* transition: transform 0.3s ease; */
+
 
 .navbar {
   border-bottom: 2px solid #ddd;
@@ -134,9 +140,24 @@ header ul li {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); 
 }
 
+.navbar-brand img {
+  height: 40px;   /* ou maior, tipo 50px */
+  width: auto;
+}
+
+.navbar {
+  position: relative;
+  z-index: 10;
+}
+
+.navbar-brand {
+  padding: 0; /* ou padding-left: 10px; */
+}
+
+
 @media (max-width: 991px) {
   #search-form {
     margin-top: 10px; 
   }
 }
-
+}

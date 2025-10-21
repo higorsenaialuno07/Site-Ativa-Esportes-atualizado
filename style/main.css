@@ -218,23 +218,108 @@ section {
   /* display: flex; */
 }
 
+
+/* Basic Reset and Container Styling */
+.banner-group {
+    /* Ensures the group is centered if space allows, or fills the width */
+    max-width: 1200px; /* Example max width, adjust as needed */
+    margin: 0 auto;
+    padding: 10px 0;
+}
+
 .banner-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
+    /* Uses Flexbox to arrange the banners horizontally */
+    display: flex;
+    /* Allows items to wrap onto the next line on smaller screens */
+    flex-wrap: wrap;
+    /* Removes default list spacing if any was inherited */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    /* Optional: Adds a small gap between the banner items */
+    gap: 10px;
+    /* Centers the items if there's extra space and they wrap */
+    justify-content: center;
 }
 
+/* Styling for each individual banner link */
 .banner-list a {
-  display: block;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Important for setting the width based on the number of banners */
+    display: block;
+    /* Makes each banner take up a proportional amount of space */
+    flex: 1 1 auto; /* Grow, Shrink, Base size auto */
+    /* Prevents the image from being cut off if its aspect ratio is different */
+    overflow: hidden;
+    /* Removes the default blue link color */
+    text-decoration: none;
+    /* Optional: Add a slight transition for hover effects */
+    transition: transform 0.3s ease;
 }
 
+/* Styling for the images within the links */
 .banner-list img {
+    /* Ensures the image fills the entire width of its container (the <a> tag) */
+    display: block;
+    width: 100%;
+    height: auto;
+    /* Makes sure the image is crisp and doesn't get blurry when scaled */
+    object-fit: cover;
+    /* Optional: Slight scaling on hover for a subtle effect */
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect for interactivity */
+.banner-list a:hover img {
+    /* Example: Slightly zoom in on the image */
+    transform: scale(1.05);
+}
+
+/* -------------------------------------- */
+
+/* Responsive Design (Breakpoints) */
+
+/* For screens wider than 1024px, show 6 banners per row */
+@media (min-width: 1024px) {
+    .banner-list a {
+        /* Calculates the width for 6 items: (100% - 5 gaps) / 6 items */
+        /* Since gap is 10px, total gap is 5*10=50px. (1200-50)/6 = 191.66px per item */
+        width: calc((100% - 50px) / 6);
+        /* Fixes the base size to the calculated width */
+        flex-basis: calc((100% - 50px) / 6);
+    }
+}
+
+/* For medium screens (e.g., tablets), show 3 banners per row */
+@media (max-width: 1023px) and (min-width: 600px) {
+    .banner-list {
+        /* Reduces the overall gap for slightly more space */
+        gap: 8px;
+    }
+    .banner-list a {
+        /* Calculates the width for 3 items: (100% - 2 gaps) / 3 items */
+        width: calc((100% - 16px) / 3);
+        flex-basis: calc((100% - 16px) / 3);
+        /* Margin below to separate rows */
+        margin-bottom: 8px;
+    }
+}
+
+/* For small screens (e.g., phones), show 2 banners per row */
+@media (max-width: 599px) {
+    .banner-list {
+        /* Reduces the overall gap */
+        gap: 5px;
+    }
+    .banner-list a {
+        /* Calculates the width for 2 items: (100% - 1 gap) / 2 items */
+        width: calc((100% - 5px) / 2);
+        flex-basis: calc((100% - 5px) / 2);
+        /* Margin below to separate rows */
+        margin-bottom: 5px;
+    }
+}
+
+.-list img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -261,12 +346,6 @@ section {
   }
 }
 
-.brand-carousel {
-  width: 100%;
-  background-color: #f9f9f9;
-  padding: 40px 0;
-  text-align: center;
-}
 
 .brand-title {
   font-size: 1.8rem;
@@ -278,12 +357,148 @@ section {
 }
 
 /* Slides */
-.swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+
+/* ===== Hero Section ===== */
+.hero {
+    background-color: #e0f0ff; /* cor de fundo leve */
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagem do banner */
+.hero img {
+    width: 100%;
+    height: auto;
+    max-height: 400px; /* limita altura sem distorcer */
+    border-radius: 8px;
+    display: block;
+    margin: 0 auto 20px auto;
+    object-fit: cover;
+}
+
+/* Títulos e parágrafo */
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    color: #222;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Botão */
+.hero button {
+    background-color: #00ff73;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.hero button:hover {
+    background-color: #9bd3b3;
+}
+
+.hero button a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ======== SEÇÃO DE OFERTAS ESPECIAIS ======== */
+.special-offers {
+  background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 100%);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.offers-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.special-offers h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.special-offers .subtitle {
+  color: #666;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.offer-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.offer-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.offer-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.offer-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.discount {
+  display: inline-block;
+  margin-top: 5px;
+  background: #ff4040;
+  color: #fff;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.offer-card:hover img {
+  transform: scale(1.1);
+}
+
 
 .swiper-slide img {
   width: 120px;
@@ -505,4 +720,214 @@ section {
     width: 100px;
   }
 }
+
+
+/* ===================== OFERTAS ESPECIAIS ===================== */
+.special-offers {
+  background-color: #fff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.special-offers h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.special-offers p {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.offer-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.offer-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.offer-card:hover img {
+  transform: scale(1.08);
+}
+
+.offer-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+}
+
+.offer-info h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.discount {
+  font-weight: bold;
+  color: #ffcc00;
+}
+
+/* ===================== ESPORTES EM DESTAQUE ===================== */
+.sports-highlight {
+  background-color: #f8f8f8;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.sports-highlight h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.sports-highlight p {
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.sports-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+.sport-card {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  overflow: hidden;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.sport-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.4s ease;
+}
+
+.sport-card span {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  color: #fff;
+  font-weight: bold;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+  font-size: 1.1rem;
+}
+
+.sport-card:hover img {
+  transform: scale(1.08);
+}
+
+.sport-card:hover {
+  transform: translateY(-5px);
+}
+
+
+.benefits {
+  text-align: center;
+  padding: 60px 20px;
+  background: #f9f9f9;
+}
+
+.benefits h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #222;
+  text-transform: uppercase;
+}
+
+.benefits p {
+  color: #555;
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.benefit-item {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.benefit-item:hover {
+  transform: translateY(-8px);
+}
+
+.benefit-item img {
+  width: 80px;
+  margin-bottom: 15px;
+}
+
+.benefit-item h3 {
+  color: #111;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.benefit-item p {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+#nav-completo {
+  background-color: #d32f2f; /* vermelho estilo Centauro */
+}
+
+.btn-outline-success {
+  color: white;
+  border-color: #28a745;
+  background-color: #28a745;
+  transition: 0.3s;
+}
+
+.btn-outline-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}
+
+.navbar-nav {
+  gap: 15px;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
 
