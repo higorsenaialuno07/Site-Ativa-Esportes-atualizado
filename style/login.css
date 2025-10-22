@@ -1,0 +1,77 @@
+body {
+  background: linear-gradient(to bottom right, #198754, #000);
+  color: #333;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+  border-radius: 15px;
+  background-color: #fff;
+}
+
+.btn-success {
+  background-color: #198754;
+  border: none;
+  transition: 0.3s;
+}
+
+.btn-success:hover {
+  background-color: #157347;
+}
+
+a {
+  text-decoration: none;
+  color: #198754;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* login.css */
+
+/* Mantém o card centralizado */
+body {
+    background-color: #f8f9fa;
+}
+
+/* Botões do login social */
+.social-login p {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.social-login .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 12px;
+    font-weight: 500;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.social-login .btn:hover {
+    opacity: 0.9;
+}
+
+/* Facebook */
+.btn-facebook {
+    background-color: #3b5998;
+    color: #fff;
+    border: none;
+}
+
+/* Google */
+.btn-google {
+    background-color: #db4437;
+    color: #fff;
+    border: none;
+}
+
+/* Ajuste de ícones dentro dos botões */
+.social-login img {
+    vertical-align: middle;
+}
+
