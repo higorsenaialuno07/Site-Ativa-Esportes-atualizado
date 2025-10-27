@@ -6,42 +6,60 @@
     <title>Sobre a página</title>
      <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f4f4f4;
             color: #333;
             margin: 0;
             padding: 0;
-            line-height: 1.6;
+            line-height: 1.8;
             text-align: center;
         }
 
         header {
             background-color: #222;
             color: #fff;
-            padding: 20px 0;
+            padding: 25px 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
         }
 
         header h1 {
             margin: 0;
+            font-size: 2rem;
+            letter-spacing: 1px;
         }
 
-        main {
-            padding: 40px 20px;
+       main {
+ max-width: 2000px;
+    margin-top: 200px; /* Use apenas a propriedade de cima */
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #fff;
+      padding: 50px 60px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: justify;
         }
 
         .imagem-sobre {
-            width: 300px;
+            display: block;
+            margin: 0 auto 30px auto;
+            width: 320px;
             height: auto;
-            transition: filter 0.3s ease;
+            border-radius: 10px;
+            transition: filter 0.3s ease, transform 0.3s ease;
         }
 
         .imagem-sobre:hover {
-            filter: brightness(150%); /* aumenta o brilho em 50% ao passar o mouse */
+            filter: brightness(120%);
+            transform: scale(1.05);
         }
 
         p {
-            max-width: 600px;
+            max-width: 1832px;
             margin: 20px auto;
+            font-size: 1.1rem;
+            color: #555;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -51,10 +69,16 @@
     </header>
 
     <main>
-        <img src="img/sobre o site.avif" alt="Imagem Sobre" class="imagem-sobre">
-        <p>
-            Este site foi criado para fornecer informações sobre esportes, eventos e novidades para os apaixonados por atividades físicas. Nossa missão é manter você atualizado de forma prática e visual.
-        </p>
+        <img src="img/imagem do sobre.png" alt="Imagem Sobre" class="imagem-sobre">
+     <p>
+    Este site foi desenvolvido com o objetivo de inspirar e conectar pessoas apaixonadas por esportes. Acreditamos que o esporte vai muito além de uma simples atividade física — ele representa saúde, superação e qualidade de vida.  
+    </p>
+    <p>
+    Aqui, você encontra conteúdos, produtos e dicas voltadas para quem deseja melhorar o desempenho, conhecer novas modalidades e se manter sempre motivado. Nosso compromisso é oferecer informações atualizadas, de forma prática e acessível para todos os públicos.  
+    </p>
+    <p>
+    Seja você um atleta, um praticante de final de semana ou apenas um admirador do mundo esportivo, este espaço foi criado para você. Explore, descubra e viva o esporte com a gente!
+    </p>
     </main>
 </body>
 </html>
